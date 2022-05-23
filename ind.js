@@ -5,37 +5,27 @@ let p = document.createElement('div')
 let p2 = document.createElement('div')
 let h1 = document.createElement('h1')
 let form = document.forms.todo
+let ii = document.querySelector('.pop')
 let container = document.createElement('div')
 let done_h1 = document.createElement('h2')
 let done_h2 = document.createElement('h2')
-done_h1.innerHTML = 'Not Done!'
-done_h2.innerHTML = 'Done!'
-
-
-
 let cont1 = document.createElement('div')
 let cont2 = document.createElement('div')
 
+done_h1.innerHTML = 'Not Done!'
+done_h2.innerHTML = 'Done!'
 cont1.classList.add('newww')
 cont2.classList.add('newww')
-
-
-
 cont1.append(done_h1)
 cont2.append(done_h2)
 container.append(cont1, cont2)
 container.classList.add('cont')
-
-
-
-
 it.classList.add('ass')
 it2.classList.add('ass')
 body.prepend(h1)
 h1.innerHTML = 'Todo List'
 
-let todos = [] || JSON.parse(localStorage.getItem('todos')) 
-
+let todos = JSON.parse(localStorage.getItem('todos'))
 let todos_done = []
 
 form.onsubmit = (event) => {
@@ -71,6 +61,7 @@ let reload = (arr) => {
     it2.innerHTML = ''
     console.log(arr);
     for (let item of arr) {
+
         let newTask = document.createElement('div')
         newTask.classList.add('newTask')
         let h = document.createElement('h4')
@@ -80,10 +71,6 @@ let reload = (arr) => {
         let checkbox = document.createElement('input')
         let done = document.createElement('div')
         let done_text = document.createElement('span')
-
-
-
-
 
         done_text.innerHTML = 'not done!'
         done_text.classList.add('notDone')
@@ -97,6 +84,7 @@ let reload = (arr) => {
         box.append(h, del)
         done.append(checkbox, done_text)
         newTask.append(box, time, done)
+
         if (item.status) {
             done.innerHTML = ''
             done_text.innerHTML = 'done!'
@@ -109,6 +97,7 @@ let reload = (arr) => {
             cont1.append(it)
         }
 
+        localStorage.todos = JSON.stringify(todos)
 
         checkbox.onclick = () => {
 
@@ -117,19 +106,16 @@ let reload = (arr) => {
                 done_text.innerHTML = 'not done!'
                 done_text.classList.add('notDone')
                 item.status = false
-            
+
 
             } else {
                 done_text.classList.remove('notDone')
                 done_text.innerHTML = 'done!'
                 done_text.classList.add('done')
-                // it2.append(newTask)
                 item.status = true
-                // cont2.append(it2)
-            
             }
-            localStorage.todos = todos
-            reload(arr)    
+
+            reload(arr)
         }
 
         del.onclick = () => {
@@ -140,15 +126,17 @@ let reload = (arr) => {
             reload(arr)
         }
     }
+
 }
 
+ii.onkeyup = () => {
+    console.log(ii.value);
+    let filtered = todos.filter(item => item.task.includes(ii.value))
+    reload(filtered)
+}
 
 
 body.append(container)
 
-let temp = JSON.parse(localStorage.getItem('todos'))
-
-if(temp.length > 0){
-    reload(temp)
-}
+reload(todos)
 

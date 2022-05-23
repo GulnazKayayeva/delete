@@ -5,7 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.name {
+.first {
     display: flex;
     justify-content: center;
 }
@@ -36,7 +36,7 @@ button {
 }
 
 .newTask {
-    width: 210px;
+    /* width: 210px; */
     height: 100px;
     background-color: rgb(170, 184, 211);
     border: 2px solid blue;
@@ -80,16 +80,13 @@ button {
 .cont{
     display: flex;
     width: 90%;
-    align-items: center;
     margin: 10px auto;
     justify-content: space-between;
 }
 
 .newww{
     width: 50%;
-    height: 400px;
-    border: 1px solid gray;
+
     padding: 20px;
     border-radius: 10px ;
-    background-color: rgb(223, 233, 223);
 }
