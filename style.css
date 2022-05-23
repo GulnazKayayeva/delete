@@ -16,7 +16,7 @@ h1 {
     margin: 10px 0;
 }
 
-input {
+.input_write {
     all: unset;
     width: 200px;
     height: 8px;
@@ -36,8 +36,8 @@ button {
 }
 
 .newTask {
-    width: 240px;
-    height: 80px;
+    width: 210px;
+    height: 100px;
     background-color: rgb(170, 184, 211);
     border: 2px solid blue;
     border-radius: 10px;
@@ -50,9 +50,10 @@ button {
 .ass {
     width: fit-content;
     display: grid;
+    width: 100%;
     margin: 20px auto;
-    gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .box {
@@ -64,4 +65,31 @@ button {
 
 .invalid {
     border: 2px solid red;
+}
+
+.notDone{
+    color: red;
+    margin-left: 10px;
+}
+
+.done{
+    color: green;
+    margin-left: 10px;
+}
+
+.cont{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    margin: 10px auto;
+    justify-content: space-between;
+}
+
+.newww{
+    width: 50%;
+    height: 400px;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 10px ;
+    background-color: rgb(223, 233, 223);
 }
