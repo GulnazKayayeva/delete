@@ -25,7 +25,7 @@ it2.classList.add('ass')
 body.prepend(h1)
 h1.innerHTML = 'Todo List'
 
-let todos = JSON.parse(localStorage.getItem('todos'))
+let todos = JSON.parse(localStorage.getItem('todos')) || []
 let todos_done = []
 
 form.onsubmit = (event) => {
